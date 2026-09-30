@@ -45,7 +45,24 @@ try {
         }
         window.scrollTo(0, 0);
       });
-      await page.waitForTimeout(1000);
+      // Load every image, lazy ones included, and wait for them (capped at 10 s).
+      await page.evaluate(() => {
+        const pending = [...document.images].filter((img) => !img.complete);
+        for (const img of pending) img.loading = "eager";
+        return Promise.race([
+          Promise.all(
+            pending.map(
+              (img) =>
+                new Promise((resolve) => {
+                  img.addEventListener("load", resolve, { once: true });
+                  img.addEventListener("error", resolve, { once: true });
+                }),
+            ),
+          ),
+          new Promise((resolve) => setTimeout(resolve, 10_000)),
+        ]);
+      });
+      await page.waitForTimeout(500);
 
       const slug = path === "/" ? "home" : path.replace(/^\/|\/$/g, "").replaceAll("/", "-");
       await page.screenshot({ path: `shots/${slug}-${name}-fold.png` });
