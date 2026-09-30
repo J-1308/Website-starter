@@ -1,38 +1,18 @@
 # Project Context
 
-This file contains durable project knowledge.
+Agreed vocabulary and confirmed domain decisions. Business facts, scope and the brief live in
+`PROJECT.md`; don't repeat them here.
 
-Keep this concise.
+Only add what has been confirmed or deliberately decided. No temporary notes or unresolved
+assumptions.
 
-Only add information that has been confirmed or deliberately decided.
+## Naming
 
-Do not use this file for temporary notes, brainstorming, abandoned ideas,
-or unresolved assumptions.
-
-## Business
-
-Not yet defined.
-
-## Customers
-
-Not yet defined.
-
-## Products / Services
-
-Not yet defined.
-
-## Brand
-
-Not yet defined.
-
-## Website
-
-Not yet defined.
-
-## Technical Requirements
+How the business, its products and its places are written (spelling, capitalisation, what
+not to call them).
 
 Not yet defined.
 
 ## Glossary
 
-Add project-specific terminology here as it becomes relevant.
+Add project-specific terms here as they become relevant.
